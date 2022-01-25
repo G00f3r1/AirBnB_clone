@@ -1,6 +1,6 @@
 # AirBnB clone - The console
 
-![hbnb logo](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20220124%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220124T063409Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=ff6d78594fb8882093f877e532bc12fff7890b8a4d691e87e57a1d752a1ae27e)
+![hbnb logo](/assets/hbnb.png)
 
 
 
