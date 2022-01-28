@@ -14,19 +14,17 @@ class BaseModel:
             *args: unused
             **kwargs(dict): key/value pairs
         """
-
         self.id = str(uuid4())
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
-
-        if kwargs is not None:
+        if kwargs:
             for key, value in kwargs.items():
-                if key == 'created_at' or key == 'updated_at':
-                    self.__dict__[key] =  datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
-                elif key == '__class__':
-                    continue
+                if key == "created_at" or key == "updated_at":
+                    self.__dict__[key] = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
                 else:
                     self.__dict__[key] = value
+        else:
+            models.storage.new(self)
 
     def __str__(self):
         """return string representation of BaseModel"""
@@ -35,6 +33,7 @@ class BaseModel:
     def save(self):
         """update the updated_at instance attributes"""
         self.updated_at = datetime.now()
+        models.storage.save()
 
     def to_dict(self):
         """dictionary representation of BaseModel"""
