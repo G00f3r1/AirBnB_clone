@@ -1,12 +1,15 @@
-#!/usr/bin/python3 
+#!/usr/bin/python3
 """Defining base_model"""
 
 import models
 from datetime import datetime
 from uuid import uuid4
 
+
 class BaseModel:
-    """Defining a BaseModel class that defines all common attributes/methods for other classes"""
+    """Defining a BaseModel class that defines all
+    common attributes/methods for other classes
+    """
 
     def __init__(self, *args, **kwargs):
         """Initialize the BaseModel class
@@ -14,13 +17,14 @@ class BaseModel:
             *args: unused
             **kwargs(dict): key/value pairs
         """
+        dt_format = "%Y-%m-%dT%H:%M:%S.%f"
         self.id = str(uuid4())
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
         if kwargs:
             for key, value in kwargs.items():
                 if key == "created_at" or key == "updated_at":
-                    self.__dict__[key] = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
+                    self.__dict__[key] = datetime.strptime(value, dt_format)
                 else:
                     self.__dict__[key] = value
         else:
@@ -28,7 +32,8 @@ class BaseModel:
 
     def __str__(self):
         """return string representation of BaseModel"""
-        return ("[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__))
+        c_name = self.__class__.__name__
+        return ("[{}] ({}) {}".format(c_name, self.id, self.__dict__))
 
     def save(self):
         """update the updated_at instance attributes"""
