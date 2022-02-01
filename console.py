@@ -113,7 +113,7 @@ class HBNBCommand(cmd.Cmd):
             print(new_list)
 
     def do_update(self, arg):
-        '''<updates> command to Updates an instance based on the class name
+        '''<updates> command to Update an instance based on the class name
         and id by adding or updating attribute
         Usage: update <class name> <id> <attribute name> "<attribute value>"
         '''

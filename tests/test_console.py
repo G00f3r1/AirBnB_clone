@@ -43,8 +43,8 @@ class TestHBNBCommand_help(unittest.TestCase):
             self.assertEqual(h, output.getvalue().strip())
 
     def test_help_create(self):
-        h = ("<create> command to Creates a new instance of BaseModel\n        "
-             "Usage: create <class name>")
+        h = ("<create> command to Creates a new instance of BaseModel\n"
+             "        Usage: create <class name>")
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help create"))
             self.assertEqual(h, output.getvalue().strip())
@@ -56,8 +56,8 @@ class TestHBNBCommand_help(unittest.TestCase):
             self.assertEqual(h, output.getvalue().strip())
 
     def test_help_show(self):
-        h = ("<show> command to Prints the string representation of an instance\n"
-             "        based on the class name and id\n"
+        h = ("<show> command to Prints the string representation of an"
+             " instance\n        based on the class name and id\n"
              "        Usage: show <class name> <id>")
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help show"))
@@ -72,17 +72,18 @@ class TestHBNBCommand_help(unittest.TestCase):
             self.assertEqual(h, output.getvalue().strip())
 
     def test_help_all(self):
-        h = ("<all> command to Prints all string representation of all\n        "
-             "instances based or not on the class name\n"
+        h = ("<all> command to Prints all string representation of all\n"
+             "        instances based or not on the class name\n"
              "        Usage: all <class name> or all")
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help all"))
             self.assertEqual(h, output.getvalue().strip())
 
     def test_help_update(self):
-        h = ("<updates> command to Updates an instance based on the class name\n"
-             "        and id by adding or updating attribute\n        "
-             'Usage: update <class name> <id> <attribute name> "<attribute value>"')
+        h = ("<updates> command to Update an instance based on the class"
+             " name\n        and id by adding or updating attribute\n"
+             "        Usage: update <class name> <id> <attribute name> "
+             '"<attribute value>"')
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help update"))
             self.assertEqual(h, output.getvalue().strip())
@@ -95,6 +96,6 @@ class TestHBNBCommand_help(unittest.TestCase):
             self.assertFalse(HBNBCommand().onecmd("help"))
             self.assertEqual(h, output.getvalue().strip())
 
+
 if __name__ == "__main__":
     unittest.main()
-
